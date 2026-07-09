@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- Custom robot base (from robot_ws/articubot_one), wired for the diffbot_example diffbot hardware interface -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+  <xacro:arg name="prefix" default="" />
+  <xacro:arg name="use_mock_hardware" default="false" />
+  <xacro:arg name="disable_commands" default="false"/>
+
+  <xacro:include filename="robot_core.xacro" />
+  <xacro:include filename="lidar.xacro" />
+  <xacro:include filename="camera.xacro" />
+  <xacro:include filename="depth_camera.xacro" />
+  <xacro:include filename="face.xacro" />
+
+  <!-- Import diffbot ros2_control description -->
+  <xacro:include filename="$(find diffbot_example)/ros2_control/diffbot.ros2_control.xacro" />
+
+  <xacro:diffbot_ros2_control
+    name="DiffBot" prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)" disable_commands="$(arg disable_commands)" />
+
+  <gazebo>
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>$(find diffbot_example)/config/diffbot_controllers.yaml</parameters>
+    </plugin>
+    <!-- Ground-truth pose/velocity, independent of wheel odometry, for comparing
+         against diff_drive_controller's estimate (which is open-loop and drifts). -->
+    <plugin filename="ignition-gazebo-odometry-publisher-system" name="ignition::gazebo::systems::OdometryPublisher">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <odom_topic>ground_truth/odom</odom_topic>
+      <odom_publish_frequency>50</odom_publish_frequency>
+      <dimensions>2</dimensions>
+    </plugin>
+  </gazebo>
+
+</robot>
