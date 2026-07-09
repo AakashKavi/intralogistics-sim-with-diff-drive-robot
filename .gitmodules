@@ -1,0 +1,9 @@
+[submodule "external/ros2_control_demos"]
+	path = external/ros2_control_demos
+	url = https://github.com/AakashKavi/ros2_control_demos.git
+[submodule "external/articubot_one"]
+	path = external/articubot_one
+	url = https://github.com/AakashKavi/articubot_one.git
+[submodule "external/aws-robomaker-small-warehouse-world"]
+	path = external/aws-robomaker-small-warehouse-world
+	url = https://github.com/AakashKavi/aws-robomaker-small-warehouse-world.git
