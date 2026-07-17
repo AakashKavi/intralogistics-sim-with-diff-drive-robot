@@ -12,6 +12,8 @@
         </hardware>
       </xacro:unless>
       <xacro:if value="${use_mock_hardware}">
+        <!-- CHANGED: swapped articubot's own ros2_control/gazebo_control includes for the demo's -->
+        <!-- this is the file where the two repos get combined -->
         <hardware>
           <plugin>mock_components/GenericSystem</plugin>
           <param name="calculate_dynamics">true</param>

@@ -13,6 +13,7 @@ diffbot_base_controller:
     left_wheel_names: ["left_wheel_joint"]
     right_wheel_names: ["right_wheel_joint"]
 
+    # CHANGED THIS: FROM THE ARTICUBOT URDF
     wheel_separation: 0.297
     #wheels_per_side: 1  # actually 2, but both are controlled by 1 signal
     wheel_radius: 0.033

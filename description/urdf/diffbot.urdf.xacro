@@ -18,6 +18,7 @@
   <xacro:diffbot_ros2_control
     name="DiffBot" prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)" disable_commands="$(arg disable_commands)" />
 
+    #CHANGED THIS. WITHOUT IT THE ROBOT WOULD NOT SPAWN IN GAZEBO SIM.
 <gazebo>
   <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
     <parameters>$(find diffbot_example)/config/diffbot_controllers.yaml</parameters>
