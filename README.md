@@ -12,7 +12,9 @@ On top of that base, this repo adds Gazebo Sim integration, a warehouse test env
 reactive **teleop safety layer**: drive the robot manually, and it stops you before a collision,
 waits, turns itself out of the way, then hands control back.
 
-![DiffBot](doc/diffbot.png)
+<img width="493" height="454" alt="image" src="https://github.com/user-attachments/assets/f9a3dcd7-6e5e-415c-a081-817e67f63beb" />  <img width="493" height="454" alt="image" src="https://github.com/user-attachments/assets/58007d9a-b4ab-470e-a2bf-d2d35fc059a3" />  
+
+
 
 ## Setup
 
